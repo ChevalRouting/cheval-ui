@@ -1,0 +1,13 @@
+services:
+  showcase:
+    build:
+      context: .
+      dockerfile: showcase/Dockerfile.dev
+    ports:
+      - "${CHEVAL_UI_PORT:-6006}:5173"
+    volumes:
+      - ./src:/workspace/src
+      - ./showcase/src:/workspace/showcase/src
+      - ./showcase/index.html:/workspace/showcase/index.html
+    environment:
+      CHOKIDAR_USEPOLLING: "true"

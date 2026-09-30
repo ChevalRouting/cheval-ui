@@ -1,0 +1,108 @@
+{
+  "name": "@chevalrouting/cheval-ui",
+  "version": "1.1.0",
+  "description": "Adwaita-inspired React + Tailwind design system, layout shell, and login UI.",
+  "license": "MIT",
+  "author": "Cheval Routing",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChevalRouting/cheval-ui.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "keywords": [
+    "react",
+    "tailwindcss",
+    "design-system",
+    "component-library",
+    "adwaita",
+    "gnome",
+    "ui-kit"
+  ],
+  "type": "module",
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "files": [
+    "dist",
+    "tailwind-preset.cjs"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    },
+    "./charts": {
+      "types": "./dist/charts.d.ts",
+      "import": "./dist/charts.js"
+    },
+    "./terminal": {
+      "types": "./dist/terminal.d.ts",
+      "import": "./dist/terminal.js"
+    },
+    "./styles.css": "./dist/styles.css",
+    "./tailwind-preset": "./tailwind-preset.cjs"
+  },
+  "scripts": {
+    "build": "tsup",
+    "check": "npm run check:style && npm run typecheck && npm run build && npm run showcase:build && npm run pack:check",
+    "check:commits": "node scripts/check-commits.mjs",
+    "check:style": "node scripts/check-style.mjs",
+    "dev": "npm --prefix showcase run dev",
+    "pack:check": "node scripts/check-package.mjs",
+    "showcase:build": "npm --prefix showcase run build",
+    "showcase:install": "npm --prefix showcase install",
+    "typecheck": "tsc --noEmit",
+    "prepack": "npm run build",
+    "prepublishOnly": "npm run build",
+    "test:browser": "playwright test"
+  },
+  "peerDependencies": {
+    "@xterm/addon-fit": "^0.11.0",
+    "@xterm/xterm": "^6.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.18.3",
+    "recharts": "^3.8.1",
+    "tailwindcss": "^3.4.12"
+  },
+  "peerDependenciesMeta": {
+    "recharts": {
+      "optional": true
+    },
+    "@xterm/xterm": {
+      "optional": true
+    },
+    "@xterm/addon-fit": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.15",
+    "@radix-ui/react-label": "^2.1.0",
+    "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-separator": "^1.1.0",
+    "@radix-ui/react-slot": "^1.1.0",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.447.0",
+    "sonner": "^1.5.0",
+    "tailwind-merge": "^2.5.2",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/react": "^18.3.7",
+    "@types/react-dom": "^18.3.0",
+    "@xterm/addon-fit": "^0.11.0",
+    "@xterm/xterm": "^6.0.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.18.3",
+    "recharts": "^3.8.1",
+    "tailwindcss": "^3.4.12",
+    "tsup": "^8.3.0",
+    "typescript": "^5.5.3"
+  }
+}

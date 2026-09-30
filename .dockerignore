@@ -1,0 +1,7 @@
+.git
+dist
+node_modules
+showcase/dist
+showcase/node_modules
+*.tgz
+*.tsbuildinfo

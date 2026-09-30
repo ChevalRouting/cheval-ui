@@ -1,0 +1,21 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - run: make check
+      - name: Check commit subjects
+        if: github.event_name == 'pull_request'
+        run: docker run --rm -v "$PWD:/workspace" -v /workspace/node_modules cheval-ui-builder npm run check:commits -- "${{ github.event.pull_request.base.sha }}" "${{ github.event.pull_request.head.sha }}"

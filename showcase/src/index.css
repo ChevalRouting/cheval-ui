@@ -1,0 +1,5 @@
+@import '@chevalrouting/cheval-ui/styles.css';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+body { min-width: 320px; min-height: 100vh; background: hsl(var(--background)); }
